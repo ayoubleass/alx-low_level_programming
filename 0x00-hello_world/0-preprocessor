@@ -1,2 +1,2 @@
 #!/bin/bash
-cat $CFILE
+echo $CFILE > main2.C
