@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $CFILE > main2.C
+gcc -E $CFILE > main2.c
