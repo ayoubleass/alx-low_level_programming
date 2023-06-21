@@ -11,7 +11,8 @@ int size = sizeof(string);
 int  i  = 0;
 while (i < size)
 {
-_putchar(string[i]);
+   _putchar(string[i]);
+   i++;
 }
 return (0);
 }
