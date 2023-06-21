@@ -1,26 +1,27 @@
 #include "main.h"
-/**
- *
- *
- *
- *
- *
- */
-int print_alphabet();
 
-int main (void)
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success) 
+ * print_alphabet
+ *  Return: Always 0 (Success) 
+ */
+int print_alphabet(void);
+
+int main(void)
 {
 print_alphabet();
 return (0);
 }
 
 
-int print_alphabet ()
-{	
-char c;
-for(c='a',c <= 'z',c++)
+int print_alphabet(void)
 {
-   _putchar(tolower(c));		
-}
+char c;
+for (c = 'a' ; c <= 'z' ; c++)
+{
+_putchar(tolower(c));
+
 return (0);
 }
