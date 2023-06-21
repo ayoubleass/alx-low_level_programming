@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- *print_alphabet _ Make lowerecase alphabet
+ *print_alphabet _Make lowerecase alphabet
  *Return: void
  *
  */
@@ -15,5 +15,5 @@ _putchar(c);
 }
 _putchar('\n');
 
-return ;
+return;
 }
