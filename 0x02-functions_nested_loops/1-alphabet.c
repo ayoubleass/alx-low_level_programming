@@ -13,6 +13,6 @@ char c;
 for (c = 'a' ; c <= 'z' ; c++)
 {
 _putchar(tolower(c));
-
+}
 return (0);
 }
