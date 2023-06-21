@@ -7,12 +7,12 @@
 int main(void)
 {
 char string[] = "_putchar";
-int size = sizeof(string);
+int size = sizeof(string) - 1;
 int  i  = 0;
 while (i < size)
 {
-   _putchar(string[i]);
-   i++;
+_putchar(string[i]);
+i++;
 }
 return (0);
 }
