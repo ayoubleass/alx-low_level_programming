@@ -6,13 +6,12 @@ int main(void)
 return print_alphabet();
 }
 
-
-int print_alphabet(void)
+void print_alphabet(void)
 {
 char c;
-for (c = 'a' ; c <= 'z' ; c++)
+for (c = 'A' ; c <= 'Z' ; c++)
 {
 _putchar(tolower(c));
 }
-return (0);
+return ;
 }
