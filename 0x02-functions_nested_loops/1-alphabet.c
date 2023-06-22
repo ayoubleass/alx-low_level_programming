@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- *print_alphabet  Print  lowerecase alphabet
- *Return: void
+ * print_alphabet - Prints the lowercase alphabet.
  *
+ * Description: This function prints the lowercase alphabet from 'a' to 'z'
+ * using the _putchar function. Each character is printed on a new line.
  */
-
 void print_alphabet(void)
 {
 char c;
