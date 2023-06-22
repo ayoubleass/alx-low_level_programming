@@ -20,7 +20,7 @@ while (i < 10)
 		_putchar(j + '0');
 		j++;
 	}
-	_putchari('\n');
+	_putchar('\n');
 	i++;
 }
 return;
