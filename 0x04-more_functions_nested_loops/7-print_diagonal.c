@@ -5,14 +5,6 @@
  *
  */
 
-
-
-
-
-
-
-
-
 void print_diagonal(int n)
 {
 	int space, i;
@@ -22,7 +14,7 @@ void print_diagonal(int n)
 		_putchar('\n');
 		return;
 	}
-	for (i = 0; i <= n; i++)
+	for (i = 0; i < n; i++)
 	{
 		for (space = 0 ; space <= i ; space++)
 			_putchar(' ');
