@@ -22,19 +22,22 @@ int main(void)
 
 	for (i = 1; i <= n ; i++)
 	{
-		if ((i % 3 == 0) && !(i % 5 == 0))
+		if (i % 3 == 0)
 		{
-			printf(" Fizz ");
+			printf("Fizz ");
 		}
-		if ((i % 5 == 0) && !(i % 3 == 0))
+		else if (i % 5 == 0)
 		{
-			printf(" Buzz ");
+			printf("Buzz ");
 		}
-		if (i % 3 == 0 && i % 5 == 0)
+		else if (i % 3 == 0 && i % 5 == 0)
 		{
-			printf(" FizzBuzz ");
+			printf("FizzBuzz ");
 		}
-		printf("%d ", i);
+		else
+		{
+			printf("%d ", i);
+		}
 	}
 	printf("\n");
 	return (0);
