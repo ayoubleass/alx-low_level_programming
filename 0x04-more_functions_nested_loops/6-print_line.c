@@ -8,9 +8,11 @@
 
 void print_line(int n)
 {
+	int dash;
+
 	if (n > 0)
 	{
-		for (; n > 0 ; n--)
+		for (dash = 1 ; dash > n; dash++)
 		{
 		_putchar('_');
 		}
