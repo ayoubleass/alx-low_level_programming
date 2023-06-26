@@ -14,9 +14,10 @@
 void rev_string(char *s)
 {
 	int length = strlen(s);
+	int i;
 
-	for (int i = 0; i < length / 2; i++)
-	{ 
+	for (i = 0; i < length / 2; i++)
+	{
 		char ref = s[i];
 
 		s[i] = s[length - 1 - i];
