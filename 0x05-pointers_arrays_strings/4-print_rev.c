@@ -1,5 +1,5 @@
 #include "main.h"
-#include <stdio.h>
+#include <string.h>
 /**
  * print_rev - Reverses and prints a string followed by a new line.
  * @s: Pointer to a null-terminated string to be reversed and printed.
