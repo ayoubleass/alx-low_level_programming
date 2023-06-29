@@ -1,11 +1,10 @@
 #include "main.h"
 /*
-** Reverses the elements in an integer array.
-**
-** a: Pointer to the integer array
-** n: Number of elements in the array
-*/
-
+ * reverse_array - Reverses the order of elements in an integer array.
+ *
+ * a: The input array to be reversed.
+ * n: The length of the array.
+ */
 
 
 
@@ -16,15 +15,12 @@
 
 void reverse_array(int *a, int n)
 {
-	int i;
-	int ref[n];
+	int i, temp;
 
-	for (i = 0; i < n  ; i++)
+	for (i = 0; i < n / 2; i++)
 	{
-		ref[i] = a[n - 1 - i];
-	}
-	for (i = 0; i < n; i++)
-	{
-		a[i] = ref[i];
+		temp = a[i];
+		a[i] = a[n - 1 - i];
+		a[n - 1 - i] = temp;
 	}
 }
