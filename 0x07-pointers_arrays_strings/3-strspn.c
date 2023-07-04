@@ -13,28 +13,28 @@
 unsigned int _strspn(char *s, char *accept)
 {
 	unsigned int length = 0;
-	int i, j;
+	int i;
 	int found;
 
-	for (i = 0; s[i] != '\0'; i++)
+	while (*s != '\0')
 	{
 		found = 0;
-
-		for (j = 0; j != '\0' ; j++)
+		for (i = 0; accept[i] != '\0'; i++)
 		{
-			if (s[i] == accept[i])
+			if (*s == accept[i])
 			{
-				found = 1;
-				break;
+			found = 1;
+			break;
 			}
 		}
-
 		if (found == 0)
 		{
 			return (length);
 		}
-		length++;
-	}
-	return (length);
 
+		length = length + 1;
+		s++;
+	}
+
+	return (length);
 }
