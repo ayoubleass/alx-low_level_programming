@@ -16,6 +16,11 @@ char *_strdup(char *str)
 	char *duplicate;
 	int i;
 
+	if (str == NULL)
+	{
+		return (NULL);
+	}
+	length = 1;
 	while (str[length] != '\0')
 	{
 		length++;
