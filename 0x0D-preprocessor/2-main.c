@@ -2,7 +2,8 @@
 
 /**
  *main- prints the name of the file it was compiled from
- */
+ *Return: int
+*/
 
 int main(void)
 {
