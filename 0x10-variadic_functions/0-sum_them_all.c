@@ -1,14 +1,12 @@
-#ifndef SUM
-#define SUM
 #include <stdarg.h>
 #include <stdlib.h>
 /**
- * Calculates the sum of a variable number of integers.
- *
+ * sum_them_all - alculates the sum of a variable number of integers.
+ * @n: number  of the args
  * @param n The number of integers to be summed.
  * @param ... The variadic arguments, a list of integers to be summed.
  *
- * @return The sum of the provided integers, or 0 if n is 0.
+ * Return: The sum of the provided integers, or 0 if n is 0.
  */
 
 
@@ -30,4 +28,3 @@ int sum_them_all(const unsigned int n, ...)
 	va_end(numbers);
 	return (sum);
 }
-#endif
