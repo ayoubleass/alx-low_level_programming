@@ -1,4 +1,4 @@
-#ifndef 0x0F
-#define 0x0F
+#ifndef FUN_POINTER
+#define FUN_POINTER
 void print_name(char *name, void (*f)(char *));
 #endif
