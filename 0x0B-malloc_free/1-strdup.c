@@ -36,7 +36,7 @@ char *_strdup(char *str)
 	int size = strLength(str, 0);
 
 
-	if (str == NULL)
+	if (size <= 0)
 	{
 		return (NULL);
 	}
