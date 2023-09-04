@@ -48,7 +48,7 @@ char *_strdup(char *str)
 		return (NULL);
 	}
 
-	while (n < size)
+	while (str[n] != '\0')
 	{
 		arr[n] = str[n];
 		n++;
