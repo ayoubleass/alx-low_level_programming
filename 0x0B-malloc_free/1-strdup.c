@@ -35,12 +35,6 @@ char *_strdup(char *str)
 	int n = 0;
 	int size = strLength(str, 0);
 
-
-	if (size == 0)
-	{
-		return (NULL);
-	}
-
 	if (str == NULL)
 	{
 		return (NULL);
