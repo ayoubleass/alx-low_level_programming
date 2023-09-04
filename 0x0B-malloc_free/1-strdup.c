@@ -12,10 +12,14 @@
 
 int strLength(char *str, int n)
 {
-	if (str[n] == '\0')
-		return (n);
+	if (str != NULL)
+	{
+		if (str[n] == '\0')
+			return (n);
 
-	return (strLength(str, n + 1));
+		return (strLength(str, n + 1));
+	}
+	return (n);
 }
 
 /**
