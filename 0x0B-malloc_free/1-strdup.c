@@ -41,7 +41,7 @@ char *_strdup(char *str)
 		return (NULL);
 	}
 
-	arr = malloc(size * sizeof(char));
+	arr = malloc((size + 1) * sizeof(char));
 
 	if (arr == NULL)
 	{
@@ -53,6 +53,5 @@ char *_strdup(char *str)
 		arr[n] = str[n];
 		n++;
 	}
-	arr[n] = '\0';
 	return (arr);
 }
