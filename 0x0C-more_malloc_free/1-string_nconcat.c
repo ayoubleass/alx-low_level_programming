@@ -7,7 +7,7 @@
  * Return: the size of a string
  */
 
-int strLength(char *s, int n)
+unsigned int strLength(char *s,  unsigned int n)
 {
 	if (s[n] == '\0')
 	{
@@ -30,11 +30,10 @@ int strLength(char *s, int n)
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *result;
-	int i, j;
-
-	int s1Length = strLength(s1, 0);
-	int s2Length = strLength(s2, 0);
-	int size = s1Length + n;
+	unsigned int i, j;
+	unsigned int s1Length = strLength(s1, 0);
+	unsigned int s2Length = strLength(s2, 0);
+	unsigned int size = s1Length + n;
 
 	if (s1 == NULL)
 		s1 = "";
@@ -43,7 +42,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		s2 = "";
 
 	if (n >= s2Length)
-		int size = s1Length + s2Length;
+		size = s1Length + s2Length;
 
 	result = malloc(size + 1);
 
