@@ -26,27 +26,23 @@ void print_all(const char * const format, ...)
 		switch (format[i])
 		{
 			case 'i':
-				if (comma == 1)
-					printf(", ");
+				printf("%s", (comma == 1) ? ", " : "");
 				printf("%d", va_arg(args, int));
 				comma = 1;
 				break;
 			case 'c':
-				if (comma == 1)
-					printf(",");
+				printf("%s", (comma == 1) ? ", " : "");
 				printf("%c", va_arg(args, int));
 				comma = 1;
 				break;
 			case 'f':
-				if (comma == 1)
-					printf(", ");
+				printf("%s", (comma == 1) ? ", " : "");
 				printf("%f", va_arg(args, double));
 				comma = 1;
 				break;
 			case 's':
 
-				if (comma == 1)
-					printf(", ");
+				printf("%s", (comma == 1) ? ", " : "");
 				str = va_arg(args, char *);
 				printf("%s", (str != NULL) ? str : "(nil)");
 				comma = 1;
@@ -58,5 +54,4 @@ void print_all(const char * const format, ...)
 
 	printf("\n");
 	va_end(args);
-
 }
