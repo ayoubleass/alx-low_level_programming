@@ -17,7 +17,7 @@ void print_all(const char * const format, ...)
 	va_list args;
 	int i;
 	char *str;
-	int comma;
+	int comma = 0;
 
 	va_start(args, format);
 	i = 0;
@@ -41,7 +41,6 @@ void print_all(const char * const format, ...)
 				comma = 1;
 				break;
 			case 's':
-
 				printf("%s", (comma == 1) ? ", " : "");
 				str = va_arg(args, char *);
 				printf("%s", (str != NULL) ? str : "(nil)");
@@ -49,6 +48,7 @@ void print_all(const char * const format, ...)
 				break;
 
 		}
+
 		i++;
 	}
 
