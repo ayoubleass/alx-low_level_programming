@@ -1,6 +1,4 @@
 #include "function_pointers.h"
-
-
 /**
  * print_name - Calls a function to print a name.
  *
@@ -9,8 +7,9 @@
  * a char pointer as a parameter and prints it.
  */
 
+
 void print_name(char *name, void (*f)(char *))
 {
-	f(name);
-	_putchar('\n');
+	if (name && f)
+		f(name);
 }
