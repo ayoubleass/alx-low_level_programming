@@ -14,43 +14,39 @@
 
 void print_all(const char * const format, ...)
 {
-	va_list args;
-	int i;
+va_list args;
+	unsigned int i = 0;
+	char c;
 	char *str;
-	int comma = 0;
 
 	va_start(args, format);
-	i = 0;
-	while (format[i] != '\0')
+	while (format && format[i])
 	{
-		if (format[i] == 'i')
+		c = format[i];
+		switch (format[i])
 		{
-			printf("%s", (comma == 1) ? ", " : "");
-			printf("%d", va_arg(args, int));
-			comma = 1;
+			case 'i':
+				printf("%d", va_arg(args, int));
+			break;
+			case 'f':
+				printf("%f", va_arg(args, double));
+			break;
+			case 'c':
+				printf("%c", va_arg(args, int));
+			break;
+
+			case 's':
+				str = va_arg(args, char *);
+				printf("%s", (str != NULL) ? str : "(nil)");
+			break;
+
+			default:
+			break;
 		}
-		else if (format[i] == 'c')
-		{
-			printf("%s", (comma == 1) ? ", " : "");
-			printf("%c", va_arg(args, int));
-			comma = 1;
-		}
-		else if (format[i] == 'f')
-		{
-			printf("%s", (comma == 1) ? ", " : "");
-			printf("%f", va_arg(args, double));
-			comma = 1;
-		}
-		else if (format[i] == 's')
-		{
-			printf("%s", (comma == 1) ? ", " : "");
-			str = va_arg(args, char *);
-			printf("%s", (str != NULL) ? str : "(nil)");
-			comma = 1;
-		}
+		printf("%s", (format[i + 1]
+		&& (c == 'c' || c == 'i' || c == 'f' || c == 's')) ? ", " : "");
 		i++;
 	}
-
 	printf("\n");
 	va_end(args);
 }
