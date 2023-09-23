@@ -22,9 +22,9 @@ int _printf(char *str, ...)
 		{
 			str++;
 			if (*str >= 'a' && *str <= 'z')
-			{
 				specifier = *str;
-			}
+			if (!specifier)
+				return (-1);
 
 			switch (specifier)
 			{
