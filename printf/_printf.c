@@ -16,6 +16,12 @@ int _printf(char *str, ...)
 	int size = 0;
 
 	va_start(args, str);
+	if (stringLen(str) == 1)
+	{
+		_putchar(*str);
+		size++;
+	}
+
 	while (*str != '\0')
 	{
 		if (*str == '%')
@@ -137,6 +143,15 @@ int getIntSize(int num)
 		return (1);
 
 	return (1 + getIntSize(num / 10));
+}
+
+
+int stringLen(char *s) {
+	if (*s != '\0')
+	{
+		return	(1 + printString(s + 1));
+	}
+	return (0);
 }
 
 int _putchar(char c) { return (write(1, &c, 1)); }

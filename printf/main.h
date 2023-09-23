@@ -10,5 +10,6 @@ int getIntSize(int num);
 int _printf(char *str, ...);
 int printString(char *s);
 int  print_Integer(int num);
+int stringLen(char *s);
 
 #endif
