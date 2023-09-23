@@ -20,6 +20,7 @@ int _printf(char *str, ...)
 	{
 		_putchar(*str);
 		size++;
+		return (size);
 	}
 
 	while (*str != '\0')
