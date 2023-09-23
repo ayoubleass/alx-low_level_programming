@@ -28,8 +28,10 @@ int _printf(char *str, ...)
 		{
 			str++;
 			if (*str >= 'a' && *str <= 'z' || *str == '%')
-			{
-			specifier = *str;
+				specifier = *str;
+
+			if (specifier == '\0')
+				return (-1);
 
 			switch (specifier)
 			{
@@ -55,9 +57,6 @@ int _printf(char *str, ...)
 					size++;
 					_putchar(specifier);
 					size++;
-			}
-			}else{
-				return (-1);
 			}
 		}
 		else 
