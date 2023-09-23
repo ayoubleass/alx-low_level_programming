@@ -21,7 +21,7 @@ int _printf(char *str, ...)
 		if (*str == '%')
 		{
 			str++;
-			if (*str >= 'a' && *str <= 'z')
+			if (*str >= 'a' && *str <= 'z' || *str == '%')
 				specifier = *str;
 			else
 				return (-1);
