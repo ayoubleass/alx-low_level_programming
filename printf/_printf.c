@@ -52,12 +52,11 @@ int _printf(char *str, ...)
 					size++;
 			}
 		}
-
-		if (*str != specifier)
+		else 
 		{
 			_putchar(*str);
+			size++;
 		}
-		size++;
 		str++;
 	}
 	va_end(args);
