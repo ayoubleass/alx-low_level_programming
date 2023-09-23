@@ -15,13 +15,13 @@ int _printf(char *str, ...)
 	int i;
 	int size = 0;
 
-	va_start(args, str);
 	if (stringLen(str) == 1)
 	{
 		_putchar(*str);
 		size++;
 		return (size);
 	}
+	va_start(args, str);
 
 	while (*str != '\0')
 	{
