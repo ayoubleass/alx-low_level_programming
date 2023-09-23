@@ -30,7 +30,7 @@ int _printf(char *str, ...)
 			if (*str >= 'a' && *str <= 'z' || *str == '%')
 				specifier = *str;
 
-			if (specifier == '\0')
+			if (specifier == '\0' || specifier == NULL)
 				return (-1);
 
 			switch (specifier)
