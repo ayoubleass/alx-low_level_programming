@@ -10,46 +10,37 @@
  * On failure or if the index is out of bounds, returns NULL.
  */
 
-
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	listint_t *new_node, *current_node, *prev_node;
-	unsigned int i = 0;
+	listint_t *new_node, *tmp;
+	unsigned int listLength = 0;
 
 	new_node = malloc(sizeof(listint_t));
 	if (new_node == NULL)
 		return (NULL);
 
-	new_node->n = n;
-	current_node = *head;
-
-
+	new_node->n  = n;
+	tmp = *head;
 	if (idx == 0)
 	{
-		new_node->next = *head;
+		new_node->next = tmp;
 		*head = new_node;
-		return  (new_node);
+		return (new_node);
 	}
-
-	while (current_node != NULL)
+	while (tmp != NULL && listLength < idx - 1)
 	{
-		if (i < idx)
-		{
-			prev_node = current_node;
-		}
-
-		if (i == idx)
-		{
-			prev_node->next = new_node;
-			new_node->next = current_node;
-			return (new_node);
-		}
-
-		else if (i > idx)
-			free(new_node);
-
-		current_node = current_node->next;
-		i++;
+		tmp = tmp->next;
+		listLength++;
 	}
-	return (NULL);
+
+	if (tmp == NULL)
+	{
+		free(new_node);
+		return (NULL);
+	}
+	new_node->next = tmp->next;
+	tmp->next = new_node;
+
+	return (new_node);
 }
+
