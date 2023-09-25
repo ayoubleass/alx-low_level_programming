@@ -30,7 +30,7 @@ size_t print_listint(const listint_t *h)
 	current = h;
 	if (current == NULL)
 	{
-		return (-1);
+		return (0);
 	}
 	size = printList(current);
 	return (size);
