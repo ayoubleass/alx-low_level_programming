@@ -10,7 +10,7 @@ void print_binary(unsigned long int n)
 {
 	int i;
 	int allowed = 0;
-	int len = sizeof(unsigned long int) * 4;
+	/*int len = sizeof(unsigned long int) * 4;*/
 
 	if (n == 0)
 	{
