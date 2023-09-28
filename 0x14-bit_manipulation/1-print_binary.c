@@ -10,7 +10,7 @@ void print_binary(unsigned long int n)
 {
 	int i;
 	int allowed = 0;
-	/*int len = sizeof(unsigned long int) * 4;*/
+	int len = sizeof(n) * 8;
 
 	if (n == 0)
 	{
@@ -22,7 +22,7 @@ void print_binary(unsigned long int n)
 		_putchar('1');
 		return;
 	}
-	i = 10;
+	i = len;
 	while (i >= 0)
 	{
 		unsigned long int mask = (1 << i);
@@ -38,4 +38,6 @@ void print_binary(unsigned long int n)
 		}
 		i--;
 	}
+	if (!allowed)
+		_putchar('0');
 }
