@@ -14,6 +14,9 @@ unsigned int binary_to_uint(const char *b)
 	int i = len - 1;
 	unsigned int cover = 1;
 
+	if (!b)
+		return (0);
+
 	if (len == 1 && b[0] == 1)
 	{
 		result = 1;
