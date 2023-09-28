@@ -22,7 +22,7 @@ void print_binary(unsigned long int n)
 		_putchar('1');
 		return;
 	}
-	i = len;
+	i = 10;
 	while (i >= 0)
 	{
 		unsigned long int mask = (1 << i);
