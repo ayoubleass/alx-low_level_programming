@@ -10,6 +10,7 @@ void print_binary(unsigned long int n)
 {
 	int allowed = 0;
 	int len = sizeof(n) * 8;
+	int i = 0;
 
 	if (n == 0)
 	{
@@ -21,17 +22,19 @@ void print_binary(unsigned long int n)
 		_putchar('1');
 		return;
 	}
-	while (len)
+	i = len - 1;
+	while (len - 1)
 	{
-		if (n & 1L << --bit)
+		unsigned long int mas = 1UL << i;
+
+		if (n & mas)
 		{
-			_putchar('0');
+			_putchar('1');
 			allowed = allowed + 1;
 		}
 		else if (allowed)
 			_putchar('0');
-
+		len--;
+		i--;
 	}
-	if (!allowed)
-		_putchar('0');
 }
