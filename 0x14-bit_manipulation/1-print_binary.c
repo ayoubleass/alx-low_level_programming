@@ -34,6 +34,4 @@ void print_binary(unsigned long int n)
 		else if (allowed)
 			_putchar('0');
 	}
-	if (!allowed)
-		_putchar('0');
 }
