@@ -21,7 +21,11 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	fd = open(filename, O_RDWR);
 	if (fd < 0)
+	{
+		close(fb);
 		return (0);
+
+	}
 
 	buffer = malloc(letters);
 	if (buffer == NULL)
@@ -33,11 +37,19 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	size = read(fd, buffer, letters);
 	if (size < 0)
+	{
+		close(fb);
+		free(buffer);
 		return (0);
+	}
 	buffer[size] = '\0';
 	size2 = write(1, buffer, size);
 	if (size2 < 0)
+	{
+		close(fb);
+		free(buffer);
 		return (0);
+	}
 	close(fd);
 	free(buffer);
 	return (size2);
