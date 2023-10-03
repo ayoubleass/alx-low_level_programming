@@ -22,7 +22,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	fd = open(filename, O_RDWR);
 	if (fd < 0)
 	{
-		close(fb);
+		close(fd);
 		return (0);
 
 	}
@@ -38,7 +38,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	size = read(fd, buffer, letters);
 	if (size < 0)
 	{
-		close(fb);
+		close(fd);
 		free(buffer);
 		return (0);
 	}
@@ -46,7 +46,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	size2 = write(1, buffer, size);
 	if (size2 < 0)
 	{
-		close(fb);
+		close(fd);
 		free(buffer);
 		return (0);
 	}
