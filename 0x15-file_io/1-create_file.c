@@ -13,28 +13,30 @@
 int create_file(const char *filename, char *text_content)
 {
 	int fd;
-	int result = -1;
 	int size = 0;
+	int result = -1;
 
 	if (filename == NULL)
 	return (-1);
 
 	fd = open(filename, O_CREAT | O_EXCL | O_RDWR, 0666);
 
-	if (fd < 0)
+	if (fd == -1)
 	{
 		close(fd);
 		return (result);
 	}
-	result = 1;
 
 	if (text_content != NULL)
 	{
 		size = write(fd, text_content, strlen(text_content));
-		if (size < 0)
-			result = -1;
+		if (size == -1)
+		{
+			close(fd);
+			return (result);
+		}
 	}
 
 	close(fd);
-	return (result);
+	return (1);
 }
