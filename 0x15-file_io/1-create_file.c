@@ -1,36 +1,47 @@
 #include "main.h"
 #include <string.h>
 /**
- * create_file - Creates a file with specified permissions
- * and writes text content.
- * @filename: The name of the file to create or overwrite.
- * @text_content: The NULL-
- * terminated string to write to the file (can be NULL).
- *
- * Return: 1 on success, -1 on failure.
+ * _strlen - return the length of a string.
+ * @str: pointe that point to the first char of the var str.
+ * Return: the size of the string .
+ */
+
+
+unsigned int _strlen(char *str)
+{
+	if (*str == '\0')
+		return (1);
+	return (1 + _strlen(str + 1));
+}
+
+/**
+ *  * create_file - Creates a file with specified permissions
+ *   * and writes text content.
+ *    * @filename: The name of the file to create or overwrite.
+ *     * @text_content: The NULL-
+ *      * terminated string to write to the file (can be NULL).
+ *       *
+ *        * Return: 1 on success, -1 on failure.
  */
 
 int create_file(const char *filename, char *text_content)
 {
 	int fd;
-	int size = 0;
 	int result = -1;
+	ssize_t size = 0;
 
 	if (filename == NULL)
 	return (-1);
 
-	fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC | O_EXCL, 0600);
+	fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0600);
 	if (fd == -1)
 		return (result);
-	if (text_content != NULL)
-	{
-		size = write(fd, text_content, strlen(text_content));
-		if (size == -1)
-		{
-			close(fd);
-			return (result);
-		}
-	}
+
+	if (_strlen(text_content))
+		size = write(fd, text_content, _strlen(text_content));
 	close(fd);
-	return (1);
+	if (_strlen(text_content) == size)
+		return (1);
+	else
+		return (-1);
 }
