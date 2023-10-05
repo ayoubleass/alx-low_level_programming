@@ -31,7 +31,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	buffer[size] = '\0';
 	size2 = write(1, buffer, size);
 	len = strlen(buffer);
-	if (size2 != len)
+	if (size2 != len || size2 == -1)
 	{
 		free(buffer);
 		return (0);
