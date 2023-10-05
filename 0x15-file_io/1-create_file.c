@@ -28,7 +28,9 @@ int create_file(const char *filename, char *text_content)
 {
 	int fd;
 	ssize_t size = 0;
+	ssize_t len;
 
+	len = _strlen(text_content);
 	if (!filename)
 		return (-1);
 
@@ -36,10 +38,10 @@ int create_file(const char *filename, char *text_content)
 	if (fd == -1)
 		return (-1);
 
-	if (_strlen(text_content))
-		size = write(fd, text_content, _strlen(text_content));
+	if (len > 0)
+		size = write(fd, text_content,len);
 	close(fd);
-	if (_strlen(text_content) != size)
+	if (len != size)
 		return (-1);
 
 	return (1);
