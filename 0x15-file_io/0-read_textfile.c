@@ -32,8 +32,10 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	size2 = write(1, buffer, size);
 	len = strlen(buffer);
 	if (size2 != len)
+	{
+		free(buffer);
 		return (0);
-
+	}
 	close(fd);
 	free(buffer);
 	return (size2);
