@@ -21,22 +21,34 @@ int _strlen(const char *str)
  */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int result = 0;
-	int len = strlen(b);
-	int i = len - 1;
-	unsigned int cover = 1;
+	int i = _strlen(b) - 1, initial = i;
+	unsigned int base = 1;
+	unsigned int power, j = 0;
+	unsigned int decimalValue = 0;
 
-	if (!b)
-		return (0);
-
+	if (b == NULL)
+	return (0);
 	while (i >= 0)
-	{
+		{
+		if (i == initial)
+		{
+			power = 0;
+		}
+		else
+		power += 1;
 		if (b[i] == '1')
-			result += cover;
-		if (b[i] != '0' &&  b[i] != '1')
-			return (0);
-		cover *= 2;
-		i--;
+		{
+			while (j < power)
+			{
+				base *= 2;
+				j++;
+			}
+			decimalValue += base;
+		}
+
+		if (b[i] != '1' && b[i] != '0')
+			return  (0);
+	i--;
 	}
-	return (result);
+	return (decimalValue);
 }
