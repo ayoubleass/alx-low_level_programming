@@ -24,7 +24,7 @@ unsigned int binary_to_uint(const char *b)
 {
 	int i = _strlen(b) - 1, initial = i;
 	unsigned int base = 1;
-	unsigned int power,j = 0;
+	unsigned int power, j = 0;
 	unsigned int decimalValue = 0;
 
 	if (b == NULL)
