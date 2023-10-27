@@ -31,11 +31,9 @@ unsigned int binary_to_uint(const char *b)
 	while (i >= 0)
 		{
 		if (i == initial)
-		{
 			power = 0;
-		}
 		else
-		power += 1;
+			power += 1;
 		if (b[i] == '1')
 		{
 			while (j < power)
