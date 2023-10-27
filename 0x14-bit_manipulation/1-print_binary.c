@@ -13,19 +13,21 @@ void print_binary(unsigned long int n)
 	if (n == 0)
 	{
 		_putchar('0');
-		return;
 	}
-	len--;
-	while (len)
+	else
 	{
-		unsigned long int one = 1UL;
-
-		if (n & one << --len)
+		len--;
+		while (len)
 		{
-			_putchar('1');
-			allowed = allowed + 1;
+			unsigned long int one = 1UL;
+
+			if (n & one << --len)
+			{
+				_putchar('1');
+				allowed = allowed + 1;
+			}
+			else if (allowed)
+				_putchar('0');
 		}
-		else if (allowed)
-			_putchar('0');
 	}
 }
