@@ -33,7 +33,7 @@ int append_text_to_file(const char *filename, char *text_content)
 	size_t len;
 	size_t size = 0;
 
-	if (filename == NULL)
+	if (!filename)
 		return (-1);
 
 	fd = open(filename, O_WRONLY | O_APPEND, 0777);
@@ -45,6 +45,6 @@ int append_text_to_file(const char *filename, char *text_content)
 		size = write(fd, text_content, len);
 
 	close(fd);
-	return (size  ? 1 : 1);
+	return (size  ? 1 : -1);
 }
 
