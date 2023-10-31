@@ -16,28 +16,19 @@
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fd;
-	char *buffer;
+	char buffer[BUF_SIZE * 8];
 	int size;
-	ssize_t size2, len;
+	ssize_t size2;
 
 	if (!filename || !letters)
 		return (0);
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 		return (0);
-	buffer = malloc(letters);
 
 	size = read(fd, buffer, letters);
-	buffer[size] = '\0';
 	size2 = write(1, buffer, size);
-	len = strlen(buffer);
-	if (size2 != len || size2 == -1)
-	{
-		free(buffer);
-		return (0);
-	}
 	close(fd);
-	free(buffer);
 	return (size2);
 }
 
