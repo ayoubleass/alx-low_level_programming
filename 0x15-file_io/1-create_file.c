@@ -38,12 +38,11 @@ int create_file(const char *filename, char *text_content)
 	if (fd == -1)
 		return (-1);
 
-	if (len > 0)
+	if (len)
 		size = write(fd, text_content, len);
 	close(fd);
 	if (len != size)
 		return (-1);
-
 	return (1);
 }
 
