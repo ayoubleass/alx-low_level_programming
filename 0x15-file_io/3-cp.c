@@ -31,29 +31,30 @@ int main(int argc, char **argv)
 	fd = open(fileTo, O_WRONLY | O_TRUNC | O_CREAT, 0664);
 	fd2 = open(fileFrom, O_RDONLY);
 	if (fd2 == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s", fileFrom);
-		return (98);
-	}
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s", fileFrom), exit(98);
 	if (fd == -1)
+		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", fileTo), exit(99);
+	while ((size = read(fd2, buffer, sizeof(buffer))) > 0)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", fileTo);
-		return (99);
+		if (write(fd, buffer, size) != size)
+			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", fileTo), exit(99);
+
 	}
-	size = read(fd2, buffer, sizeof(buffer));
-	buffer[size] = '\0';
-	dprintf(fd, "%s", buffer);
+	if (size == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from  file %s\n", fileTo);
+		exit(98);
+	}
 	if (close(fd) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", fd);
-		return (100);
+		exit(100);
 	}
 	if (close(fd2) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", fd2);
-		return (100);
+		exit(100);
 	}
-
 	return (0);
 }
 
