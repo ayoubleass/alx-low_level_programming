@@ -26,8 +26,8 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (fd == -1)
 		return (0);
 
-	size = read(fd, buffer, letters);
-	size2 = write(1, buffer, size);
+	size = read(fd, &buffer[0], letters);
+	size2 = write(1, &buffer[0], size);
 	if (size2 == -1 || size2 != size)
 		return (0);
 	close(fd);
