@@ -64,7 +64,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	item = list_head(key, value);
 	if (item == NULL)
 		return (0);
-	item->next = ht->array[index];
 	ht->array[index] = item;
 	return (1);
 }
