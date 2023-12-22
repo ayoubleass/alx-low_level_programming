@@ -57,12 +57,11 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	}
 	else
 	{
-		free(item->value);
-		item->value = malloc(strlen(value) + 1);
-		if (item->value == NULL)
+		hash_node_t *new_item  = list_head(key, value);
+
+		if (new_item == NULL)
 			return (0);
-		strcpy(item->value, value);
-		ht->array[index] = item;
+		item->next = new_item;
 	}
 	return (1);
 }
