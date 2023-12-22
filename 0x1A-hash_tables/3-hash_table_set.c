@@ -48,7 +48,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (key == NULL || value == NULL)
 		return (0);
 	item = ht->array[index];
-	new_item = NULL;
 	if (item == NULL)
 	{
 		item = list_head(key, value);
