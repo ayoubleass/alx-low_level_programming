@@ -43,13 +43,12 @@ hash_node_t *list_head(const char *key, const char *value)
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index = key_index((unsigned char *)key, ht->size);
-	hash_node_t *item, *new_item = NULL;
+	hash_node_t *item;
 
 	if (key == NULL || value == NULL)
 		return (0);
 	item = ht->array[index];
 	new_item = NULL;
-
 	if (item == NULL)
 	{
 		item = list_head(key, value);
@@ -59,13 +58,12 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	}
 	else
 	{
-		new_item = list_head(key, value);
-		if (new_item == NULL)
-			return (0);
 		free(item->value);
-		free(item->key);
-		free(item);
-		ht->array[index] = new_item;
+		item->value = malloc(strlen(value) + 1);
+		if (item->value == NULL)
+			return (0);
+		strcpy(item->value, value);
+		ht->array[index] = item;
 	}
 	return (1);
 }
