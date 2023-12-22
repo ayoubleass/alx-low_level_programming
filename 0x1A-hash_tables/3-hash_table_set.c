@@ -48,22 +48,20 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (key == NULL || value == NULL || *key == '\0')
 		return (0);
 	item = ht->array[index];
-	while (item == NULL)
-	{
-		if (strcmp(item->key, key))
-		{
-			free(item->value);
-			item->value = malloc(strlen(value) + 1);
-			if (item->value ==  NULL)
-				return (0);
-			strcpy(item->value, value);
-			return (1);
-		}
-		item = item->next;
-	}
-	item = list_head(key, value);
 	if (item == NULL)
-		return (0);
-	ht->array[index] = item;
+	{
+		item = list_head(key, value);
+		if (item == NULL)
+			return (0);
+		ht->array[index] = item;
+	}
+	else
+	{
+		hash_node_t *new_item = list_head(key, value);
+
+		if (new_item == NULL)
+			return (0);
+		item->next = new_item;
+	}
 	return (1);
 }
