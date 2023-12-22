@@ -12,7 +12,7 @@ hash_node_t *list_head(const char *key, const char *value)
 {
 	hash_node_t *new_item = malloc(sizeof(hash_node_t));
 
-	if (new_item == NULL)
+	if (new_item == NULL || key == NULL || value == NULL)
 		return (NULL);
 	new_item->key = malloc(strlen(key) + 1);
 	new_item->value = malloc(strlen(value) + 1);
