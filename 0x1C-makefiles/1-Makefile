@@ -5,3 +5,4 @@ school: ${SRC}
 	${CC} $< -o school
 
 all: school
+
