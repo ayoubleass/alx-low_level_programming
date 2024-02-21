@@ -1,0 +1,13 @@
+CC = gcc
+SRC = main.c school.c
+OBJ = main.o school.o
+NAME = school
+
+${NAME}: 
+	${CC} ${OBJ} -o $@
+
+
+%.o: %.c
+	${CC} -c $< -o $@
+all: ${NAME}
+
