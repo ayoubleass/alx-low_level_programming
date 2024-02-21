@@ -6,8 +6,10 @@ NAME = school
 ${NAME}: 
 	${CC} ${OBJ} -o $@
 
+main.o:
+	${CC} -c main.c -o $@
 
-%.o: %.c
-	${CC} -c $< -o $@
+school.o:
+	${CC} -c school.o -o $@
+
 all: ${NAME}
-
