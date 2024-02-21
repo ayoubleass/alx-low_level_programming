@@ -1,10 +1,4 @@
-main.o:
-	gcc -c main.c -o $@
-
-school.o:
-	gcc -c school.c -o $@
-
 all: school
 
-school: main.o school.o
-	gcc main.o school.o -o $@
+school:
+	gcc main.c school.c -o $@
